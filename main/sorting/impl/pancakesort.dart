@@ -1,4 +1,6 @@
-class PancakeSort {
+import '../sort.dart';
+
+class PancakeSort implements Sort {
   /* Reverses arr[0..i] */
   static void flip(List<int> arr, int i) {
     int temp, start = 0;
@@ -15,19 +17,20 @@ class PancakeSort {
   // maximum element in
   // arr[0..n-1]
   static int findMax(List<int> arr, int n) {
-    int mi = 0;
-    int i;
-    for (i = 0; i < n; ++i) if (arr[i] > arr[mi]) mi = i;
+    int mi, i;
+    for (mi = 0; mi < n; ++i)
+      for (i = 0; i < n; i++) {
+        if (arr[i] > arr[mi]) mi = i;
+      }
+
     return mi;
   }
 
   // The main function that
   // sorts given array using
   // flip operations
-  static int pancakeSort(List<int> arr, int n) {
-    // Start from the complete
-    // array and one by one
-    // reduce current size by one
+  List<int> sortData(List<int> arr) {
+    int n = arr.length;
     for (int curr_size = n; curr_size > 1; --curr_size) {
       // Find index of the
       // maximum element in
@@ -50,14 +53,12 @@ class PancakeSort {
         flip(arr, curr_size - 1);
       }
     }
-    return 0;
+    return arr;
   }
 
   /* Utility function to print array arr[] */
   static void printArray(List<int> arr, int arr_size) {
-    print(arr);
+    for (int i = 0; i < arr_size; i++) print(arr[i]);
   }
-
-  /* Driver function to check for above functions*/
 }
 /* This code is contributed by Devesh Agrawal*/

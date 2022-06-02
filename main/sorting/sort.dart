@@ -1,4 +1,3 @@
-abstract class Sort{
-
-  double sortData(List <int> data);
+abstract class Sort {
+  List<int> sortData(List<int> data);
 }

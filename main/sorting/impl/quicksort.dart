@@ -1,4 +1,6 @@
-class QuickSort {
+import '../sort.dart';
+
+class QuickSort implements Sort {
 // A utility function to swap two elements
   static void swap(List<int> arr, int i, int j) {
     int temp = arr[i];
@@ -55,5 +57,11 @@ of pivot */
 // Function to print an array
   static void printArray(List<int> arr, int size) {
     print(arr);
+  }
+
+  @override
+  List<int> sortData(List<int> data) {
+    quickSort(data, data.first, data.last);
+    return data;
   }
 }
